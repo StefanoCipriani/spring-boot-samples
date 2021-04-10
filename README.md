@@ -4,7 +4,7 @@ Maven multimodulo con esempi di spring boot
 #Build
 eseguire dal parent mvn clean install
 
-#Async Examplefsdfsd
+#Async Example
 dentro example-async: run as spring boot application ExampleAsyncApplication.java
 
 Per lanciare l'esempio andare su: 
