@@ -6,3 +6,6 @@ eseguire dal parent mvn clean install
 
 #Async Example
 dentro example-async: run as spring boot application ExampleAsyncApplication.java
+
+Per lanciare l'esempio andare su: 
+http://localhost:8989/home
