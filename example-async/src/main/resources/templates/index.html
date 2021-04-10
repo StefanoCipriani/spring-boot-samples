@@ -1,0 +1,54 @@
+
+<head>
+<title>Async example</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#startAsync').click(function(){
+			$.get("elaborationStatus", function(data){
+				$('#elaborationStatus').val(data);
+			});
+			$.get("async", function(data){
+				let text = $('#resTextArea').text();
+				text+="\n"+data;
+				$('#resTextArea').text(text);
+				//$( "#startAsync" ).trigger( "click" );
+				$.get("elaborationStatus", function(data){
+					$('#elaborationStatus').val(data);
+				});
+			});
+		});
+		$('#otherCall').click(function(){
+			$.get("other", function(data){
+				$('#otherCallInput').val(data);
+			});
+		});
+		
+		$('#clearTextArea').click(function(){
+			$('#resTextArea').text('');
+		});
+	});
+</script>
+</head>
+
+<body>
+	Hello!
+	<p>
+		<button id="startAsync">Start Async thread</button>
+		<br/><br/>
+		<label>Elaboration status</label><input id="elaborationStatus" type="text" />
+	</p>
+	<br />
+	<p>
+		<textarea id="resTextArea" rows="10" cols="50" placeholder="This will contains async result call"></textarea>
+		<button id="clearTextArea">Clear</button>	
+	</p>
+	<br />
+	<p>
+		<button id="otherCall">Continue using othercall while async is processing</button><br/>
+		<input id="otherCallInput" type="text" />
+	</p>
+	
+	<a href="page2">Go to page2</a>
+</body>
